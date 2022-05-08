@@ -1,0 +1,340 @@
+/* ---- reset ---- */ body{ margin:0; font:normal 75% Arial, Helvetica, sans-serif; } canvas{ display: block; vertical-align: bottom; } /* ---- particles.js container ---- */ #particles-js{ position:absolute; width: 100%; height: 100%; background-color: #ffffff; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } /* ---- stats.js ---- */ .count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #13E8E9; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
+
+
+
+
+/*========= LoadingのためのCSS ===============*/
+
+/* Loading背景画面設定　*/
+
+#splash {
+  /*fixedで全面に固定*/
+position: fixed;
+z-index: 999;
+width: 100%;
+height: 100%;
+background:#fff;
+text-align:center;
+color:#809aeb;
+}
+
+/* Loadingバー中央配置　*/
+#splash_text {
+position: absolute;
+top: 50%;
+left: 50%;
+  z-index: 999;
+width: 100%;
+transform: translate(-50%, -50%);
+color: #809aeb;
+}
+
+/*IE11対策用バーの線の高さ※対応しなければ削除してください*/
+#splash_text svg{
+  height: 2px;
+}
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+header {
+  height: 100px;
+}
+
+.container {
+  margin: 150px;
+}
+
+.title {
+  text-align: center;
+}
+
+h1, h2, p{
+  color: #333;
+}
+
+
+
+
+
+/* 背景画像 */
+#particles-js{
+	position:fixed;/*描画固定*/
+	z-index:-1;/*描画を一番下に*/
+	width: 100%;
+	height: 100%;
+}
+
+#wrapper{
+	position: relative;/*描画を#particles-jsよりも上にするためposition:relative;を指定*/
+	z-index: 1;/*z-indexの数字を大きくすることで描画を#particles-jsよりも上に*/
+	width:100%;
+	height: 100%;
+}
+
+
+
+/*========= ナビゲーションのためのCSS ===============*/
+
+/*アクティブになったエリア*/
+#g-nav.panelactive{
+    /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+    position:fixed;
+    z-index: 999;
+	top: 0;
+	width:100%;
+    height: 100vh;
+}
+
+/*丸の拡大*/
+.circle-bg{
+    position: fixed;
+	z-index:3;
+    /*丸の形*/
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #809aeb;
+    /*丸のスタート位置と形状*/
+	transform: scale(0);/*scaleをはじめは0に*/
+    right:-50px;
+    top:calc(50% - 50px);/*50%から円の半径を引いた値*/
+    transition: all .6s;/*0.6秒かけてアニメーション*/
+}
+
+.circle-bg.circleactive{
+	transform: scale(50);/*クラスが付与されたらscaleを拡大*/
+}
+
+/*ナビゲーションの縦スクロール*/
+#g-nav-list{
+    display: none;/*はじめは表示なし*/
+    /*ナビの数が増えた場合縦スクロール*/
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#g-nav.panelactive #g-nav-list{
+     display: block; /*クラスが付与されたら出現*/
+}
+
+/*ナビゲーション*/
+#g-nav ul {
+	opacity: 0;/*はじめは透過0*/
+    /*ナビゲーション天地中央揃え※レイアウトによって調整してください。不必要なら削除*/
+    position: absolute;
+    z-index: 999;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+/*背景が出現後にナビゲーションを表示*/
+#g-nav.panelactive ul {
+    opacity:1;
+}
+
+/* 背景が出現後にナビゲーション li を表示※レイアウトによって調整してください。不必要なら削除*/
+#g-nav.panelactive ul li{
+animation-name:gnaviAnime;
+animation-duration:1s;
+animation-delay:.2s;/*0.2 秒遅らせて出現*/
+animation-fill-mode:forwards;
+opacity:0;
+}
+@keyframes gnaviAnime{
+0% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+
+
+/*リストのレイアウト設定*/
+#g-nav li{
+	text-align: center;
+	list-style: none;
+}
+
+#g-nav li a{
+	color: #333;
+	text-decoration: none;
+	padding:10px;
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-weight: bold;
+}
+
+
+/*========= ボタンのためのCSS ===============*/
+.openbtn{
+	position:fixed;
+	top:10px;
+	right: 10px;
+	z-index: 9999;/*ボタンを最前面に*/
+	cursor: pointer;
+    width: 50px;
+    height:50px;
+}
+
+/*×に変化*/
+.openbtn span{
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+	background-color: #666;
+  	width: 45%;
+  }
+
+.openbtn span:nth-of-type(1) {
+	top:15px;
+}
+
+.openbtn span:nth-of-type(2) {
+	top:23px;
+}
+
+.openbtn span:nth-of-type(3) {
+	top:31px;
+}
+
+.openbtn.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+	opacity: 0;
+}
+
+.openbtn.active span:nth-of-type(3){
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+
+
+/* Aboutエリア */
+
+.about .discription {
+  display: flex;
+  /* align-items: flex-start; */
+  /* justify-content: center; */
+  flex-wrap: wrap;
+}
+
+.about .discription .image {
+  width: 50%;
+  text-align: center;
+}
+
+.about .discription img {
+  border-radius: 50%;
+}
+
+.about .discription p {
+  flex-shrink: 0;
+  width: 50%;
+  line-height: 35px;
+}
+
+
+
+
+/* テックエリア */
+
+.tech img {
+  height: 140px;
+  width: 140px;
+}
+
+.tech .tech-image {
+  text-align: center;
+}
+
+.tech .tech-image p {
+  font-weight: bold;
+}
+
+.tech h2 {
+  padding: 20px 0;
+  text-align: center;
+}
+
+/* ワークスエリア */
+.works img {
+  height: 300px;
+  width: 340px;
+}
+
+.works .work {
+  text-align: center;
+}
+
+
+/* コンタクトエリア */
+.contact .twitter {
+  height: 140px;
+  width: 140px;
+}
+
+.contact .github {
+  height: 125px;
+  width: 125px;
+}
+
+.contact .qiita {
+  height: 125px;
+  width: 125px;
+  border-radius: 100%;
+}
+
+.contacts .contact {
+  text-align: center;
+  background-color:royalblue;
+}
+
+.contact p {
+  text-decoration: none;
+  color: black;
+}
+
+.contact a {
+  text-decoration: none;
+}
+
+
+/* フッターエリア */
+footer {
+  margin: 50px;
+  height: 20px;
+  border-top: 1px solid darkgray;
+}
+
+footer p {
+  text-align: right;
+  padding-top: 10px;
+  color: gray;
+  font-size: 70%;
+}
