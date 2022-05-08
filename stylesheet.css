@@ -43,11 +43,6 @@ color: #809aeb;
 }
 
 
-
-header {
-  height: 100px;
-}
-
 .container {
   margin: 150px;
 }
@@ -56,11 +51,18 @@ header {
   text-align: center;
 }
 
-h1, h2, p{
-  color: #333;
+h2, p{
+  color: #333333;
 }
 
+h1 {
+  color: #333333;
+  padding-bottom: 50px;
+}
 
+header {
+  height: 40px;
+}
 
 
 
@@ -235,6 +237,19 @@ opacity: 1;
 
 
 
+
+.name h1 {
+  font-size: 80px;
+  text-align: center;
+  margin: 100px 0 -70px 0;
+  letter-spacing: 5px;
+}
+
+.randomAnime {
+	visibility: hidden;
+}
+
+
 /* Aboutエリア */
 
 .about .discription {
@@ -257,20 +272,42 @@ opacity: 1;
   flex-shrink: 0;
   width: 50%;
   line-height: 35px;
+  font-size: 17px;
+}
+
+
+.about .fadeUp{
+  animation-name:fadeUpAnime;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
 }
 
 
 
 
-/* テックエリア */
+/* techエリア */
 
 .tech img {
-  height: 140px;
-  width: 140px;
+  height: 160px;
+  width: 160px;
 }
 
 .tech .tech-image {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .tech .tech-image p {
@@ -282,31 +319,145 @@ opacity: 1;
   text-align: center;
 }
 
-/* ワークスエリア */
-.works img {
+
+
+/* creationエリア */
+.creations img {
   height: 300px;
   width: 340px;
 }
 
-.works .work {
+.creations .creation {
+  margin: 20px;
+  padding: 40px 0 25px 0;
   text-align: center;
+  border: solid 2px darkgray;
+}
+
+/*==================================================
+スタート時は要素自体を透過0にするためのopacity:0;を指定する
+===================================*/
+
+.creations .box{
+	opacity: 0;
+}
+
+.tech .box {
+  opacity: 0;
+}
+
+/*==================================================
+動かしたい動き（今回は” ふわっ” を採用）
+===================================*/
+
+.fadeUp {
+animation-name:fadeUpAnime;
+animation-duration:0.5s;
+animation-fill-mode:forwards;
+opacity: 0;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+	transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+	transform: translateY(0);
+  }
 }
 
 
-/* コンタクトエリア */
+
+
+/* Questionエリア */
+.questions {
+  background-image: url("image/question/background.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  padding-bottom: 60px;
+}
+
+.questions h1 {
+  color: #f5f5f5!important;
+}
+
+.questions .q_and_a {
+  background: #fff;
+  justify-content: center;
+  margin: 50px 260px;
+  border-radius: 15px;
+  padding: 20px 0 5px 20px;
+}
+
+
+p.question {
+  cursor: pointer;
+}
+p.question:hover {
+  text-decoration: underline;
+}
+p.answer {
+  display: none;
+  background: #f2f2f2;
+  margin-left: 1em;
+  padding: 10px;
+}
+
+/*
+.q_and_a{
+  margin-left:4em;
+}
+
+.q_and_a .answer{
+  padding-bottom:0.5em;
+  border-bottom:2px dotted #ccc;
+
+}
+
+.q_and_a .question:hover{
+  font-weight:bold;
+  color:#000;
+
+  cursor: pointer;
+}
+
+.q_and_a .answer:hover{
+  font-weight:bold;
+
+  cursor: pointer;
+
+}
+
+.q_and_a p{
+  margin-left:-2em;
+  text-indent:-2em;
+  padding-right:1em;
+}
+
+.q_and_a p span{
+  display:inline-block;
+  margin-left:1.5em;
+} */
+
+
+
+/* contactエリア */
 .contact .twitter {
-  height: 140px;
-  width: 140px;
+  height: 120px;
+  width: 120px;
 }
 
 .contact .github {
-  height: 125px;
-  width: 125px;
+  height: 105px;
+  width: 105px;
 }
 
 .contact .qiita {
-  height: 125px;
-  width: 125px;
+  height: 105px;
+  width: 105px;
   border-radius: 100%;
 }
 
@@ -324,6 +475,24 @@ opacity: 1;
   text-decoration: none;
 }
 
+.contacts .fadeRight{
+  animation-name:fadeRightAnime;
+  animation-duration:3s;
+  animation-fill-mode:forwards;
+  opacity:0;
+  }
+
+  @keyframes fadeRightAnime{
+    from {
+      opacity: 0;
+    transform: translateX(100px);
+    }
+
+    to {
+      opacity: 1;
+    transform: translateX(0);
+    }
+  }
 
 /* フッターエリア */
 footer {
