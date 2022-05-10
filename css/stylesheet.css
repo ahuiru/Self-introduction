@@ -1,41 +1,34 @@
-
-
-/* ---- reset ---- */ body{ margin:0; font:normal 75% Arial, Helvetica, sans-serif; } canvas{ display: block; vertical-align: bottom; } /* ---- particles.js container ---- */ #particles-js{ position:absolute; width: 100%; height: 100%; background-color: #ffffff; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } /* ---- stats.js ---- */ .count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #13E8E9; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
-
+/* 背景 */
+/* ---- reset ---- */ body{ margin:0; font:normal 75% Arial, Helvetica, sans-serif; } canvas{ display: block; vertical-align: bottom; } /* ---- particles.js container ---- */ #particles-js{ position:fixed; width: 100%; height: 100%; background-color: #ffffff; background-image: url(""); z-index:-1; background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } /* ---- stats.js ---- */ .count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #13E8E9; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
 
 
 
-/*========= LoadingのためのCSS ===============*/
-
-/* Loading背景画面設定　*/
-
+/* Loading背景画面*/
 #splash {
   /*fixedで全面に固定*/
-position: fixed;
-z-index: 999;
-width: 100%;
-height: 100%;
-background:#fff;
-text-align:center;
-color:#809aeb;
-}
-
-/* Loadingバー中央配置　*/
-#splash_text {
-position: absolute;
-top: 50%;
-left: 50%;
+  position: fixed;
   z-index: 999;
-width: 100%;
-transform: translate(-50%, -50%);
-color: #809aeb;
+  width: 100%;
+  height: 100%;
+  background:#fff;
+  text-align:center;
+  color:#809aeb;
 }
 
-/*IE11対策用バーの線の高さ※対応しなければ削除してください*/
+/* Loadingバー中央配置*/
+#splash_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+    z-index: 999;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  color: #809aeb;
+}
+
 #splash_text svg{
   height: 2px;
 }
-
 
 
 
@@ -43,7 +36,6 @@ color: #809aeb;
   margin: 0;
   padding: 0;
 }
-
 
 .container {
   margin: 150px;
@@ -67,25 +59,56 @@ header {
   height: 20px;
 }
 
-.btn a {
-  text-decoration: none;
+/* 透過からフェードインやスライド(about,tech,creations,question,contact) */
+.box{
+	opacity: 0;
 }
 
-
-
-/* 背景画像 */
-#particles-js{
-	position:fixed;/*描画固定*/
-	z-index:-1;/*描画を一番下に*/
-	width: 100%;
-	height: 100%;
+/* 右からスライドabout,tech,creations,question,contact */
+.fadeRight{
+  animation-name:fadeRightAnime;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+  opacity:0;
 }
 
-#wrapper{
-	position: relative;/*描画を#particles-jsよりも上にするためposition:relative;を指定*/
-	z-index: 1;/*z-indexの数字を大きくすることで描画を#particles-jsよりも上に*/
-	width:100%;
-	height: 100%;
+@keyframes fadeRightAnime{
+  from {
+    opacity: 0;
+  transform: translateX(150px);
+  }
+
+  to {
+    opacity: 1;
+  transform: translateX(0);
+  }
+}
+
+/* フェードアップ(tech,creations) */
+.fadeUp {
+  animation-name:fadeUpAnime;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
+
+/* 浮かせる(creations,question,contact) */
+.float{
+	position:relative;
+	top:0;
+  transition: all 0.4s;
 }
 
 
@@ -95,27 +118,27 @@ header {
 /*アクティブになったエリア*/
 #g-nav.panelactive{
     /*position:fixed;にし、z-indexの数値を大きくして前面へ*/
-    position:fixed;
-    z-index: 999;
+  position:fixed;
+  z-index: 999;
 	top: 0;
 	width:100%;
-    height: 100vh;
+  height: 100vh;
 }
 
 /*丸の拡大*/
 .circle-bg{
-    position: fixed;
+  position: fixed;
 	z-index:3;
-    /*丸の形*/
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: #809aeb;
-    /*丸のスタート位置と形状*/
+  /*丸の形*/
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #809aeb;
+  /*丸のスタート位置と形状*/
 	transform: scale(0);/*scaleをはじめは0に*/
-    right:-50px;
-    top:calc(50% - 50px);/*50%から円の半径を引いた値*/
-    transition: all .6s;/*0.6秒かけてアニメーション*/
+  right:-50px;
+  top:calc(50% - 50px);/*50%から円の半径を引いた値*/
+  transition: all .6s;/*0.6秒かけてアニメーション*/
 }
 
 .circle-bg.circleactive{
@@ -124,53 +147,52 @@ header {
 
 /*ナビゲーションの縦スクロール*/
 #g-nav-list{
-    display: none;/*はじめは表示なし*/
-    /*ナビの数が増えた場合縦スクロール*/
-    position: fixed;
-    z-index: 999;
-    width: 100%;
-    height: 100vh;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+  display: none;/*はじめは表示なし*/
+  /*ナビの数が増えた場合縦スクロール*/
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 #g-nav.panelactive #g-nav-list{
-     display: block; /*クラスが付与されたら出現*/
+  display: block; /*クラスが付与されたら出現*/
 }
 
 /*ナビゲーション*/
 #g-nav ul {
 	opacity: 0;/*はじめは透過0*/
-    /*ナビゲーション天地中央揃え※レイアウトによって調整してください。不必要なら削除*/
-    position: absolute;
-    z-index: 999;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
+  /*ナビゲーション天地中央揃え※レイアウトによって調整してください。不必要なら削除*/
+  position: absolute;
+  z-index: 999;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
 }
 
 /*背景が出現後にナビゲーションを表示*/
 #g-nav.panelactive ul {
-    opacity:1;
+  opacity:1;
 }
 
 /* 背景が出現後にナビゲーション li を表示※レイアウトによって調整してください。不必要なら削除*/
 #g-nav.panelactive ul li{
-animation-name:gnaviAnime;
-animation-duration:1s;
-animation-delay:.2s;/*0.2 秒遅らせて出現*/
-animation-fill-mode:forwards;
-opacity:0;
-}
+  animation-name:gnaviAnime;
+  animation-duration:1s;
+  animation-delay:.2s;/*0.2 秒遅らせて出現*/
+  animation-fill-mode:forwards;
+  opacity:0;
+  }
 @keyframes gnaviAnime{
-0% {
-opacity: 0;
+  0% {
+  opacity: 0;
+  }
+  100% {
+  opacity: 1;
+  }
 }
-100% {
-opacity: 1;
-}
-}
-
 
 /*リストのレイアウト設定*/
 #g-nav li{
@@ -189,30 +211,30 @@ opacity: 1;
 }
 
 
-/*========= ボタンのためのCSS ===============*/
+/*ハンバーガーのボタン*/
 .openbtn{
   margin-top: 15px;
   margin-right: 20px;
 	position:fixed;
 	top:10px;
 	right: 10px;
-	z-index: 9999;/*ボタンを最前面に*/
+	z-index: 9999;
 	cursor: pointer;
-    width: 50px;
-    height:50px;
+  width: 50px;
+  height:50px;
 }
 
 /*×に変化*/
 .openbtn span{
-    display: inline-block;
-    transition: all .4s;
-    position: absolute;
-    left: 14px;
-    height: 3px;
-    border-radius: 2px;
+  display: inline-block;
+  transition: all .4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
 	background-color: #333;
-  	width: 45%;
-  }
+  width: 45%;
+}
 
 .openbtn span:nth-of-type(1) {
 	top:15px;
@@ -227,10 +249,10 @@ opacity: 1;
 }
 
 .openbtn.active span:nth-of-type(1) {
-    top: 18px;
-    left: 18px;
-    transform: translateY(6px) rotate(-45deg);
-    width: 30%;
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
 }
 
 .openbtn.active span:nth-of-type(2) {
@@ -238,15 +260,15 @@ opacity: 1;
 }
 
 .openbtn.active span:nth-of-type(3){
-    top: 30px;
-    left: 18px;
-    transform: translateY(-6px) rotate(45deg);
-    width: 30%;
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
 }
 
 
 
-
+/* topのname */
 .name h1 {
   font-family: 'Amatic SC', cursive;
   font-weight: bolder;
@@ -257,27 +279,13 @@ opacity: 1;
   height: 500px;
 }
 
-@media screen and (max-width: 960px) {
-  .name h1 {
-    font-size: 70px!important;
-    height: 400px;
-  }
-}
-@media screen and (max-width: 520px) {
-  .name h1 {
-    font-size: 60px!important;
-    margin: 250px 0 -90px 0;
-    height: 300px;
-  }
-}
-
 .randomAnime {
 	visibility: hidden;
 }
 
 
-/* Aboutエリア */
 
+/* Aboutエリア */
 .about .discription {
   display: flex;
   flex-wrap: wrap;
@@ -300,62 +308,9 @@ opacity: 1;
   margin: auto 0;
 }
 
-.about .flipRightTop{
-  animation-name:flipRightTopAnime;
-  animation-duration:6s;
-  animation-fill-mode:forwards;
-  opacity:0;
-  }
-
-.about .fadeUp {
-  animation-name:fadeUpAnime;
-  animation-duration:5s!important;
-  animation-fill-mode:forwards;
-  opacity: 0;
-  }
-
-  @keyframes flipRightTopAnime{
-    from {
-     transform: translate(-20px,80px) rotate(25deg);
-     opacity: 0;
-    }
-
-    to {
-     transform: translate(0,1) rotate(0deg);
-    opacity: 1;
-    }
-  }
-
-
-  @media screen and (max-width: 960px) {
-    .about .discription .image {
-      width: 100%;
-    }
-
-    .about .discription p {
-      flex-shrink: 0;
-      width: 100%;
-      line-height: 35px;
-      font-size: 17px;
-      text-align: center;
-      justify-content: center;
-      padding-top: 30px;
-    }
-  }
-  @media screen and (max-width: 520px) {
-    .about .discription .image {
-      width: 100%;
-    }
-    .about .discription p {
-      padding-top: 20px;
-    }
-  }
-
-
 
 
 /* techエリア */
-
 .tech img {
   height: 160px;
   width: 160px;
@@ -394,18 +349,14 @@ opacity: 1;
   padding: 15px 30px;
 }
 
-.float{
-	position:relative;
-	top:0;
-  transition: all .4s;
-}
-
 /*hoverをしたらボックスに影がつき、上に上がる*/
 .creations .float:hover {
 	top:-10px;
 }
 
-
+.btn a {
+  text-decoration: none;
+}
 
 .modal-container {
   display: none;
@@ -437,54 +388,6 @@ opacity: 1;
   cursor: pointer;
 }
 
-@media screen and (max-width: 960px) {
-}
-@media screen and (max-width: 520px) {
-  .creations img {
-    height: 220px;
-    width: 240px;
-  }
-
-  .modal-container {
-    margin: auto 0;
-  }
-
-}
-
-
-/*==================================================
-スタート時は要素自体を透過0にするためのopacity:0;を指定する
-===================================*/
-
-.box{
-	opacity: 0;
-}
-
-
-/*==================================================
-動かしたい動き（今回は” ふわっ” を採用）
-===================================*/
-
-.fadeUp {
-animation-name:fadeUpAnime;
-animation-duration:0.5s;
-animation-fill-mode:forwards;
-opacity: 0;
-}
-
-@keyframes fadeUpAnime{
-  from {
-    opacity: 0;
-	transform: translateY(100px);
-  }
-
-  to {
-    opacity: 1;
-	transform: translateY(0);
-  }
-}
-
-
 
 
 /* Questionエリア */
@@ -507,7 +410,6 @@ opacity: 0;
   padding: 20px 0 5px 20px;
 }
 
-
 p.question {
   cursor: pointer;
 }
@@ -522,93 +424,13 @@ p.answer {
   border-radius: 10px;
 }
 
-
-/*hoverをしたらボックスに影がつき、上に上がる*/
 .questions .float:hover {
 	top:-2px;
 }
 
-@media screen and (max-width: 960px) {
-  .questions .q_and_a {
-    margin: 50px 70px;
-    border-radius: 15px;
-    padding: 20px 20px 5px 20px;
-  }
-
-
-  p.question {
-    cursor: pointer;
-  }
-  p.question:hover {
-    text-decoration: none;
-  }
-  p.answer {
-    display: none;
-    background: #f2f2f2;
-    margin-left: 16px;
-    padding: 10px;
-  }
-
+.questions .float{
+  transition: all 0.1s!important;
 }
-@media screen and (max-width: 520px) {
-  .questions .q_and_a {
-    background: #fff;
-    justify-content: center;
-    margin: 40px 20px;
-    border-radius: 15px;
-    padding: 20px 0 5px 20px;
-  }
-
-  p.question {
-    cursor: pointer;
-  }
-  p.question:hover {
-    text-decoration: none;
-  }
-  p.answer {
-    margin: 10px 14px 10px 0;
-    padding: 10px;
-  }
-}
-
-
-
-/*
-.q_and_a{
-  margin-left:4em;
-}
-
-.q_and_a .answer{
-  padding-bottom:0.5em;
-  border-bottom:2px dotted #ccc;
-
-}
-
-.q_and_a .question:hover{
-  font-weight:bold;
-  color:#000;
-
-  cursor: pointer;
-}
-
-.q_and_a .answer:hover{
-  font-weight:bold;
-
-  cursor: pointer;
-
-}
-
-.q_and_a p{
-  margin-left:-2em;
-  text-indent:-2em;
-  padding-right:1em;
-}
-
-.q_and_a p span{
-  display:inline-block;
-  margin-left:1.5em;
-} */
-
 
 
 /* contactエリア */
@@ -650,51 +472,10 @@ p.answer {
   text-decoration: none;
 }
 
-@media screen and (max-width: 960px) {
-  .contacts {
-    margin: 60px 80px;
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .contacts {
-    margin: 100px 0;
-  }
-
-  .contacts .contact {
-    margin: 30px auto;
-    height: 300px;
-    width: 300px;
-    padding: 88px 50px 50px 50px;
-  }
-}
-
-/*== 上に移動し影がついて浮き上がる */
-
-
-/*hoverをしたらボックスに影がつき、上に上がる*/
 .contacts .float:hover {
 	top:-8px;
 }
 
-.fadeRight{
-  animation-name:fadeRightAnime;
-  animation-duration:0.5s;
-  animation-fill-mode:forwards;
-  opacity:0;
-  }
-
-  @keyframes fadeRightAnime{
-    from {
-      opacity: 0;
-    transform: translateX(150px);
-    }
-
-    to {
-      opacity: 1;
-    transform: translateX(0);
-    }
-  }
 
 
 
@@ -710,4 +491,113 @@ footer p {
   padding-top: 10px;
   color: gray;
   font-size: 70%;
+}
+
+
+
+/* タブレット */
+@media screen and (max-width: 960px) {
+  /* topのname */
+  .name h1 {
+    font-size: 70px!important;
+    height: 400px;
+  }
+
+  /* about */
+  .about .discription .image {
+    width: 100%;
+  }
+  .about .discription p {
+    flex-shrink: 0;
+    width: 100%;
+    line-height: 35px;
+    font-size: 17px;
+    text-align: center;
+    justify-content: center;
+    padding-top: 30px;
+  }
+
+  /* qusetion */
+  .questions .q_and_a {
+    margin: 50px 70px;
+    border-radius: 15px;
+    padding: 20px 20px 5px 20px;
+  }
+  p.question {
+    cursor: pointer;
+  }
+  p.question:hover {
+    text-decoration: none;
+  }
+  p.answer {
+    display: none;
+    background: #f2f2f2;
+    margin-left: 16px;
+    padding: 10px;
+  }
+
+  /* contact */
+  .contacts {
+    margin: 60px 80px;
+  }
+}
+
+
+/* スマホ */
+@media screen and (max-width: 520px) {
+  /* topのname */
+  .name h1 {
+    font-size: 60px!important;
+    margin: 250px 0 -90px 0;
+    height: 300px;
+  }
+
+  /* about */
+  .about .discription .image {
+    width: 100%;
+  }
+  .about .discription p {
+    padding-top: 20px;
+  }
+
+  /* creation */
+  .creations img {
+    height: 220px;
+    width: 240px;
+  }
+
+  .modal-container {
+    margin: auto 0;
+  }
+
+  /* qusetion */
+  .questions .q_and_a {
+    background: #fff;
+    justify-content: center;
+    margin: 40px 20px;
+    border-radius: 15px;
+    padding: 20px 0 5px 20px;
+  }
+  p.question {
+    cursor: pointer;
+  }
+  p.question:hover {
+    text-decoration: none;
+  }
+  p.answer {
+    margin: 10px 14px 10px 0;
+    padding: 10px;
+  }
+
+  /* contact */
+  .contacts {
+    margin: 100px 0;
+  }
+
+  .contacts .contact {
+    margin: 30px auto;
+    height: 300px;
+    width: 300px;
+    padding: 88px 50px 50px 50px;
+  }
 }
