@@ -402,7 +402,39 @@ opacity: 1;
 
 /*hoverをしたらボックスに影がつき、上に上がる*/
 .creations .float:hover {
-	top:-5px;
+	top:-10px;
+}
+
+
+
+.modal-container {
+  display: none;
+  position: fixed;
+  background: rgba(0, 0, 0, .6);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+}
+
+.modal-container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.modal-container img {
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: 100px;
+  padding: 70px 0;
+}
+
+.creations img.popup {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 960px) {
@@ -412,6 +444,11 @@ opacity: 1;
     height: 220px;
     width: 240px;
   }
+
+  .modal-container {
+    margin: auto 0;
+  }
+
 }
 
 
@@ -452,7 +489,7 @@ opacity: 0;
 
 /* Questionエリア */
 .questions {
-  background-image: url("image/question/background.jpg");
+  background-image: url("../image/question/background.jpg");
   background-attachment: fixed;
   background-size: cover;
   padding-bottom: 60px;
