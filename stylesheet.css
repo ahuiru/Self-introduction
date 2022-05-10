@@ -1,3 +1,5 @@
+
+
 /* ---- reset ---- */ body{ margin:0; font:normal 75% Arial, Helvetica, sans-serif; } canvas{ display: block; vertical-align: bottom; } /* ---- particles.js container ---- */ #particles-js{ position:absolute; width: 100%; height: 100%; background-color: #ffffff; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } /* ---- stats.js ---- */ .count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #13E8E9; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
 
 
@@ -49,6 +51,7 @@ color: #809aeb;
 
 .title {
   text-align: center;
+  font-size: 50px;
 }
 
 h2, p{
@@ -61,7 +64,11 @@ h1 {
 }
 
 header {
-  height: 40px;
+  height: 20px;
+}
+
+.btn a {
+  text-decoration: none;
 }
 
 
@@ -184,6 +191,8 @@ opacity: 1;
 
 /*========= ボタンのためのCSS ===============*/
 .openbtn{
+  margin-top: 15px;
+  margin-right: 20px;
 	position:fixed;
 	top:10px;
 	right: 10px;
@@ -201,7 +210,7 @@ opacity: 1;
     left: 14px;
     height: 3px;
     border-radius: 2px;
-	background-color: #666;
+	background-color: #333;
   	width: 45%;
   }
 
@@ -239,10 +248,27 @@ opacity: 1;
 
 
 .name h1 {
-  font-size: 80px;
+  font-family: 'Amatic SC', cursive;
+  font-weight: bolder;
+  font-size: 100px!important;
   text-align: center;
-  margin: 100px 0 -70px 0;
+  margin: 300px 0 -90px 0;
   letter-spacing: 5px;
+  height: 500px;
+}
+
+@media screen and (max-width: 960px) {
+  .name h1 {
+    font-size: 70px!important;
+    height: 400px;
+  }
+}
+@media screen and (max-width: 520px) {
+  .name h1 {
+    font-size: 60px!important;
+    margin: 250px 0 -90px 0;
+    height: 300px;
+  }
 }
 
 .randomAnime {
@@ -254,8 +280,6 @@ opacity: 1;
 
 .about .discription {
   display: flex;
-  /* align-items: flex-start; */
-  /* justify-content: center; */
   flex-wrap: wrap;
 }
 
@@ -272,28 +296,60 @@ opacity: 1;
   flex-shrink: 0;
   width: 50%;
   line-height: 35px;
-  font-size: 17px;
+  font-size: 18px;
+  margin: auto 0;
 }
 
-
-.about .fadeUp{
-  animation-name:fadeUpAnime;
-  animation-duration:0.5s;
+.about .flipRightTop{
+  animation-name:flipRightTopAnime;
+  animation-duration:6s;
   animation-fill-mode:forwards;
   opacity:0;
-}
-
-@keyframes fadeUpAnime{
-  from {
-    opacity: 0;
-  transform: translateY(100px);
   }
 
-  to {
+.about .fadeUp {
+  animation-name:fadeUpAnime;
+  animation-duration:5s!important;
+  animation-fill-mode:forwards;
+  opacity: 0;
+  }
+
+  @keyframes flipRightTopAnime{
+    from {
+     transform: translate(-20px,80px) rotate(25deg);
+     opacity: 0;
+    }
+
+    to {
+     transform: translate(0,1) rotate(0deg);
     opacity: 1;
-  transform: translateY(0);
+    }
   }
-}
+
+
+  @media screen and (max-width: 960px) {
+    .about .discription .image {
+      width: 100%;
+    }
+
+    .about .discription p {
+      flex-shrink: 0;
+      width: 100%;
+      line-height: 35px;
+      font-size: 17px;
+      text-align: center;
+      justify-content: center;
+      padding-top: 30px;
+    }
+  }
+  @media screen and (max-width: 520px) {
+    .about .discription .image {
+      width: 100%;
+    }
+    .about .discription p {
+      padding-top: 20px;
+    }
+  }
 
 
 
@@ -323,7 +379,7 @@ opacity: 1;
 
 /* creationエリア */
 .creations img {
-  height: 300px;
+  height: 310px;
   width: 340px;
 }
 
@@ -334,17 +390,39 @@ opacity: 1;
   border: solid 2px darkgray;
 }
 
+.creations .creation .explanation{
+  padding: 15px 30px;
+}
+
+.float{
+	position:relative;
+	top:0;
+  transition: all .4s;
+}
+
+/*hoverをしたらボックスに影がつき、上に上がる*/
+.creations .float:hover {
+	top:-5px;
+}
+
+@media screen and (max-width: 960px) {
+}
+@media screen and (max-width: 520px) {
+  .creations img {
+    height: 220px;
+    width: 240px;
+  }
+}
+
+
 /*==================================================
 スタート時は要素自体を透過0にするためのopacity:0;を指定する
 ===================================*/
 
-.creations .box{
+.box{
 	opacity: 0;
 }
 
-.tech .box {
-  opacity: 0;
-}
 
 /*==================================================
 動かしたい動き（今回は” ふわっ” を採用）
@@ -387,7 +465,7 @@ opacity: 0;
 .questions .q_and_a {
   background: #fff;
   justify-content: center;
-  margin: 50px 260px;
+  margin: 50px 200px;
   border-radius: 15px;
   padding: 20px 0 5px 20px;
 }
@@ -397,14 +475,66 @@ p.question {
   cursor: pointer;
 }
 p.question:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 p.answer {
   display: none;
   background: #f2f2f2;
-  margin-left: 1em;
+  margin: 16px;
   padding: 10px;
+  border-radius: 10px;
 }
+
+
+/*hoverをしたらボックスに影がつき、上に上がる*/
+.questions .float:hover {
+	top:-2px;
+}
+
+@media screen and (max-width: 960px) {
+  .questions .q_and_a {
+    margin: 50px 70px;
+    border-radius: 15px;
+    padding: 20px 20px 5px 20px;
+  }
+
+
+  p.question {
+    cursor: pointer;
+  }
+  p.question:hover {
+    text-decoration: none;
+  }
+  p.answer {
+    display: none;
+    background: #f2f2f2;
+    margin-left: 16px;
+    padding: 10px;
+  }
+
+}
+@media screen and (max-width: 520px) {
+  .questions .q_and_a {
+    background: #fff;
+    justify-content: center;
+    margin: 40px 20px;
+    border-radius: 15px;
+    padding: 20px 0 5px 20px;
+  }
+
+  p.question {
+    cursor: pointer;
+  }
+  p.question:hover {
+    text-decoration: none;
+  }
+  p.answer {
+    margin: 10px 14px 10px 0;
+    padding: 10px;
+  }
+}
+
+
 
 /*
 .q_and_a{
@@ -445,25 +575,33 @@ p.answer {
 
 
 /* contactエリア */
+.contacts {
+  margin: 100px 150px;
+  justify-content: center;
+}
+
 .contact .twitter {
-  height: 120px;
-  width: 120px;
+  height: 100px;
+  width: 100px;
 }
 
 .contact .github {
-  height: 105px;
-  width: 105px;
+  height: 100px;
+  width: 100px;
 }
 
 .contact .qiita {
-  height: 105px;
-  width: 105px;
+  height: 100px;
+  width: 100px;
   border-radius: 100%;
 }
 
 .contacts .contact {
   text-align: center;
   background-color:royalblue;
+  margin-bottom: 50px;
+  padding: 50px 25px 30px 25px;
+  border-radius: 5px;
 }
 
 .contact p {
@@ -471,13 +609,40 @@ p.answer {
   color: black;
 }
 
-.contact a {
+.contacts a:hover {
   text-decoration: none;
 }
 
-.contacts .fadeRight{
+@media screen and (max-width: 960px) {
+  .contacts {
+    margin: 60px 80px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .contacts {
+    margin: 100px 0;
+  }
+
+  .contacts .contact {
+    margin: 30px auto;
+    height: 300px;
+    width: 300px;
+    padding: 88px 50px 50px 50px;
+  }
+}
+
+/*== 上に移動し影がついて浮き上がる */
+
+
+/*hoverをしたらボックスに影がつき、上に上がる*/
+.contacts .float:hover {
+	top:-8px;
+}
+
+.fadeRight{
   animation-name:fadeRightAnime;
-  animation-duration:3s;
+  animation-duration:0.5s;
   animation-fill-mode:forwards;
   opacity:0;
   }
@@ -485,7 +650,7 @@ p.answer {
   @keyframes fadeRightAnime{
     from {
       opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(150px);
     }
 
     to {
@@ -493,6 +658,8 @@ p.answer {
     transform: translateX(0);
     }
   }
+
+
 
 /* フッターエリア */
 footer {

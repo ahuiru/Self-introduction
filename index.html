@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="stylesheet.css">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-  <script src="jquery-3.5.1.min.js"></script>
+  <script src="jquery/jquery-3.5.1.min.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css">
 </head>
@@ -37,58 +37,58 @@
   </header>
 
   <div class="name">
-    <h1 class="randomAnime">Narazaki Soujirou</h1>
+    <h1 class="randomAnime">Narazaki<span> Soujirou</span></h1>
   </div>
 
 
-  <div class="container">
-    <div class="about" id="about">
-      <h1 class="title">About</h1>
+  <div class="about" id="about">
+    <div class="container">
+      <h1 class="title box fadeRightTrigger">About</h1>
       <div class="discription">
         <div class="row">
-          <div class="image col">
-            <img src="image/about/about_me.jpeg" alt="About-picture" width="300" height="300">
+          <div class="image col-sm-12 col-md-12 col-lg-6">
+            <img src="image/about/about_me.jpeg" alt="About-picture" width="300" height="300" class="box fadeRightTrigger">
           </div>
-          <p class="col">楢﨑 壮二朗(ならざき そうじろう)。2001年10月25日生まれの20歳。現在は駒澤大学法学部の3年生。兄の影響で大学一年生の時にプログラミングを始める。新しいものが大好きで、最近ではWEB3の領域にはまっている。主に仮想通貨とNFTをさわっている。</p>
+          <p class="col-sm-12 col-md-12 col-lg-6 box fadeRightTrigger">楢﨑 壮二朗(ならざき そうじろう)。2001年生まれの20歳です。現在は駒澤大学法学部政治学科に在籍していて、24卒予定の3年生です。兄の影響で大学一年生の時にプログラミングを始めました。新しいものが大好きで、最近ではWEB3の領域にはまっています。主に仮想通貨とNFTを触っています。</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container">
-    <div class="tech" id="tech">
-      <h1 class="title">Tech</h1>
+  <div class="tech" id="tech">
+    <div class="container">
+      <h1 class="title box fadeRightTrigger">Tech</h1>
       <div class="row delayScroll">
-        <div class="tech-image col-4 col box">
+        <div class="tech-image col-lg-4 col-md-6 col-sm-12 col box">
           <img src="image/tech/html.jpeg" alt="tech-picture">
           <p>HTML</p>
         </div>
-        <div class="tech-image col-4 col box">
+        <div class="tech-image col-lg-4 col-md-6 col-sm-12 col box">
           <img src="image/tech/css.png" alt="tech-picture">
           <p>CSS</p>
         </div>
-        <div class="tech-image col-4 col box">
+        <div class="tech-image col-lg-4 col-md-6 col-sm-12 col box">
           <img src="image/tech/bootstrap.png" alt="tech-picture">
           <p>Bootstrap</p>
         </div>
-        <div class="tech-image col-4 col box">
+        <div class="tech-image col-lg-4 col-md-6 col-sm-12 col box">
           <img src="image/tech/ruby.jpeg" alt="tech-picture">
           <p>Ruby</p>
         </div>
-        <div class="tech-image col-4 col box">
+        <div class="tech-image col-lg-4 col-md-6 col-sm-12 col box">
           <img src="image/tech/rails.png" alt="tech-picture">
           <p>Ruby on Rails</p>
         </div>
-        <h2 class="col-12">Only touched</h2>
-        <div class="tech-image col-4 col box">
+        <h2 class="col-12">触ったことがあるだけ</h2>
+        <div class="tech-image col-lg-4 col-md-6 col-sm-12 col box">
           <img src="image/tech/jquery.png" alt="tech-picture">
           <p>jquery</p>
         </div>
-        <div class="tech-image col-4 col box">
+        <div class="tech-image col-lg-4 col-md-6 col-sm-12 col box">
           <img src="image/tech/gatsby.png" alt="tech-picture">
           <p>Gatsby</p>
         </div>
-        <div class="tech-image col-4 col box">
+        <div class="tech-image col-lg-4 col-md-6 col-sm-12 col box">
           <img src="image/tech/scss.png" alt="tech-picture">
           <p>SCSS</p>
         </div>
@@ -96,80 +96,85 @@
     </div>
   </div>
 
-  <div class="container">
-    <div class="creations" id="creations">
-      <h1 class="title">Creation</h1>
+  <div class="creations" id="creations">
+    <div class="container">
+      <h1 class="title box fadeRightTrigger">Creations</h1>
       <div class="row delayScroll">
         <div class="creation col box">
-          <a href="https://ahuiru.netlify.app/"><img src="image/works/netlify.jpeg" alt="work-picture" class="mb-4"></a>
+          <a href="https://ahuiru.netlify.app/"><img src="image/creations/netlify.jpeg" alt="work-picture" class="mb-4 float"></a>
           <h4>ポートフォリオ</h4>
-          <p>自分の作ったものを置くポートフォリオのサイトです。</p>
+          <p class="explanation">自分の作ったものを置くポートフォリオのサイトです。Gatsbyで作って、netlifyへデプロイしました。</p>
+          <a href="https://github.com/ahuiru/my-portfolio" class="float"><button type="button" class="btn btn-outline-primary">github</button></a>
         </div>
         <div class="creation col box">
-          <a href="https://comic-sns.herokuapp.com/"><img src="image/works/ccam-s.jpeg" alt="work-picture" class="mb-4"></a>
+          <a href="https://comic-sns.herokuapp.com/"><img src="image/creations/ccam-s.jpeg" alt="work-picture" class="mb-4 float"></a>
           <h4>CCAM-s</h4>
-          <p>漫画のワンシーンを切り取って投稿するSNSサイトです。</p>
+          <p class="explanation">漫画のワンシーンを切り取って投稿するSNSサイトです。もともと私は漫画が大好きで、それをきっかけに作りました。色々な漫画を知りたい、自分の好きな漫画を伝えたい、と思った時に使って欲しいです。また、あの漫画ってどういうシーンがあるのかと思ったときに用いることができます。Ruby on Railsで作って、herokuへデプロイしました。</p>
+          <a href="https://github.com/ahuiru/CCAM-s" class="float"><button type="button" class="btn btn-outline-primary">github</button></a>
         </div>
+
+
         <div class="creation col box">
-          <img src="image/works/airbnb.png" alt="work-picture" class="mb-4">
+          <img src="image/creations/airbnb.png" alt="work-picture" class="mb-4 float">
           <h4>Airbnb</h4>
-          <p>Airbnbのクローンです。(リンクはありません)</p>
+          <p class="explanation">Airbnbのクローンです。これは大学一年生の冬に作ったものです。(サイトへのリンクはありません)</p>
+          <a href="https://github.com/ahuiru/A-clone" class="float"><button type="button" class="btn btn-outline-primary">github</button></a>
         </div>
+
+
         <div class="creation col box">
-          <img src="image/works/corporate.png" alt="work-picture" class="mb-4">
+          <img src="image/creations/corporate.png" alt="work-picture" class="mb-4 float">
           <h4>Corporateサイト</h4>
-          <p>会社をイメージしたwebサイトです。(リンクはありません)</p>
+          <p class="explanation">会社をイメージしたwebサイトです。これは大学一年生の夏に作ったものです。(サイトへのリンクはありません)</p>
+          <a href="https://github.com/ahuiru/corporate-site" class="float"><button type="button" class="btn btn-outline-primary">github</button></a>
         </div>
       </div>
     </div>
   </div>
 
   <div class="questions" id="question">
-    <h1 class="title pt-5">Question</h1>
-    <div class="q_and_a">
-      <p class="question">Q.生年月日は？</p>
-      <p class="answer">A.2001年10月25日です。</p>
+    <h1 class="title box fadeRightTrigger pt-5">Question</h1>
+    <div class="q_and_a box fadeRightTrigger">
+      <p class="question">Q.<span class="float"> 生年月日は？</span></p>
+      <p class="answer">A. 2001年10月25日です。</p>
     </div>
-    <div class="q_and_a">
-      <p class="question">Q.部活は？</p>
-      <p class="answer">A.バスケットボール部でした。</p>
+    <div class="q_and_a box fadeRightTrigger">
+      <p class="question">Q.<span class="float"> どんな性格？</span></p>
+      <p class="answer">A. 明るく、好奇心が旺盛です。「やってみたい」、「やってみよう」がまず最初にきます。</p>
     </div>
-    <div class="q_and_a">
-      <p class="question">Q.休みの日は何する？</p>
-      <p class="answer">A.漫画を読むか、カラオケかビリヤードをします。</p>
+    <div class="q_and_a box fadeRightTrigger">
+      <p class="question">Q.<span class="float"> 特技や趣味は？</span></p>
+      <p class="answer">A. 小学校から高校までバスケットボールをしていました。基本的に体を動かすことが好きです。趣味は漫画を読んだりカラオケに行ったりすることです。</p>
     </div>
-    <div class="q_and_a">
-      <p class="question">Q.座右の銘は？</p>
-      <p class="answer">A.</p>
+    <div class="q_and_a box fadeRightTrigger">
+      <p class="question">Q.<span class="float"> 休みの日は何する？</span></p>
+      <p class="answer">A. 漫画を読みふけるか、友達とカラオケかビリヤードに行きます。最近は少し、美術や音楽に興味が沸いていて、美術館に行ったり、ギターを弾いたりしています。</p>
     </div>
   </div>
 
-  <div class="container">
-    <div class="contacts" id="contact">
-      <h1 class="title">Contact</h1>
-      <div class="row pt-5">
-        <div class="contact col-12 m-2 p-5 fadeRight box fadeInUpTrigger">
-          <a href="https://twitter.com/Afe_afe_crypto">
+  <div class="contacts" id="contact">
+    <!-- <div class="container"> -->
+      <h1 class="title box fadeRightTrigger">Contact</h1>
+      <a href="https://twitter.com/Afe_afe_crypto" class="float">
+        <div class="contact box fadeRightTrigger">
             <img src="image/contact/twitter.png" alt="work-picture" class="twitter">
             <p class="pt-3">Twitter</p>
-          </a>
-        </div>
-        <div class="contact col-12 m-2 p-5 fadeRight box fadeInUpTrigger">
-          <a href="https://github.com/ahuiru">
+          </div>
+        </a>
+        <a href="https://github.com/ahuiru" class="float">
+          <div class="contact box fadeRightTrigger">
             <img src="image/contact/github.png" alt="work-picture" class="github">
             <p class="pt-3">Github</p>
-          </a>
-        </div>
-        <div class="contact col-12 m-2 p-5 fadeRight box fadeInUpTrigger">
-          <a href="https://qiita.com/ahuiru">
-            <img src="image/contact/eyecatch-qiita.png" alt="work-picture" class="qiita">
+          </div>
+        </a>
+        <a href="https://qiita.com/ahuiru" class="float">
+          <div class="contact box fadeRightTrigger">
+            <img src="image/contact/qiita.png" alt="work-picture" class="qiita">
             <p class="pt-3">Qiita</p>
-          </a>
-        </div>
-      </div>
-    </div>
+          </div>
+        </a>
+    <!-- </div> -->
   </div>
-
 
   <footer>
     <p>© 2022 NARAZAKI SOUJIROU All rights reserved</p>
@@ -185,13 +190,13 @@
 
   <!-- 文字のランダム出現 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js"></script>
-  <script src="jquery.lettering.js"></script>
+  <script src="jquery/jquery.lettering.js"></script>
 
   <!-- 背景 -->
-  <script src="particles.min.js" ></script>
+  <script src="jquery/particles.min.js" ></script>
 
   <!-- 自分のファイル -->
-  <script src="animation.js"></script>
+  <script src="jquery/animation.js"></script>
 
 </body>
 </html>
