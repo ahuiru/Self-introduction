@@ -37,8 +37,6 @@ $(window).scroll(function (){
   fadeAnime();
 });
 
-
-
 //・最初のローディング
 var bar = new ProgressBar.Line(splash_text, {
   easing: 'easeInOut',
